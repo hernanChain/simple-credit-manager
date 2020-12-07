@@ -47,3 +47,13 @@
   color: black;
   border-bottom: 1px solid black;
 }
+#button-action {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.hidden-activar {
+  display: none;
+}
+.hidden-desactivar {
+  display: none;
+}

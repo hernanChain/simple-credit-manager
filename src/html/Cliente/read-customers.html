@@ -63,7 +63,6 @@
                   <a class="dropdown-item" href="#"
                     >Actualizar informacion de Clientes</a
                   >
-                  <a class="dropdown-item" href="#">Inhabilitar Cliente</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -82,9 +81,10 @@
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a class="dropdown-item" href="#">Iniciar credito</a>
+                  <a class="dropdown-item" href="../Credito/create-credit.html"
+                    >Iniciar credito</a
+                  >
                   <a class="dropdown-item" href="#">Ver Creditos por Cliente</a>
-                  <a class="dropdown-item" href="#">Cerrar Credito</a>
                 </div>
               </li>
               <li class="nav-item active">
@@ -146,6 +146,29 @@
             <p class="sufix">
               Numero de Creditos: <span class="value" id="credits">96</span>
             </p>
+
+            <div id="button-action">
+              <div id="activar" class="">
+                <button
+                  type="button"
+                  id="action"
+                  class="btn btn-success hidden"
+                  value="activar"
+                >
+                  Activar
+                </button>
+              </div>
+              <div id="desactivar" class="">
+                <button
+                  type="button"
+                  id="action"
+                  class="btn btn-danger"
+                  value="desactivar"
+                >
+                  Desactivar
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 

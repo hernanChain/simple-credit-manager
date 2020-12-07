@@ -11,6 +11,9 @@ const fillTable = () => {
     </tr>`;
   });
 };
+const resetTable = () => {
+  document.getElementById("table-all-customers").innerHTML += ``;
+};
 // console.log(JSON.parse(localStorage.getItem("data")));
 fillTable();
 
@@ -20,27 +23,29 @@ document.getElementById("search-id").addEventListener("click", () => {
     const customer = data.find((customer) => customer.id === id);
     if (customer) {
       console.log(customer);
+      document.getElementById(
+        "name"
+      ).innerHTML = `${customer.name} ${customer.lastName}`;
+      document.getElementById("cellphone").innerHTML = customer.cellphone;
+      document.getElementById("email").innerHTML = customer.email;
+      document.getElementById("address").innerHTML = customer.address;
+      document.getElementById("credits").innerHTML = customer.credits.length;
+      document
+        .getElementById("customer-details")
+        .classList.remove("hidden-customer-data");
+      document
+        .getElementById("customer-details")
+        .classList.add("show-customer-data");
       if (customer.state) {
-        document.getElementById(
-          "name"
-        ).innerHTML = `${customer.name} ${customer.lastName}`;
-        document.getElementById("cellphone").innerHTML = customer.cellphone;
-        document.getElementById("email").innerHTML = customer.email;
-        document.getElementById("address").innerHTML = customer.address;
-        document.getElementById("credits").innerHTML = customer.credits.length;
         document
-          .getElementById("customer-details")
-          .classList.remove("hidden-customer-data");
-        document
-          .getElementById("customer-details")
-          .classList.add("show-customer-data");
+          .getElementById("desactivar")
+          .classList.remove("hidden-desactivar");
+        document.getElementById("activar").classList.add("hidden-activar");
       } else {
-        document.getElementById(
-          "alert"
-        ).innerHTML = `<div class="alert alert-warning"><strong>Woow! </strong>El cliente no se encuentra activo</div>`;
-        setTimeout(() => {
-          document.getElementById("alert").innerHTML = "";
-        }, 4000);
+        document.getElementById("activar").classList.remove("hidden-activar");
+        document
+          .getElementById("desactivar")
+          .classList.add("hidden-desactivar");
       }
     } else {
       document.getElementById(
@@ -72,4 +77,28 @@ document.getElementById("read-by-id").addEventListener("click", () => {
   document
     .getElementById("customer-details")
     .classList.add("hidden-customer-data");
+});
+
+document.getElementById("activar").addEventListener("click", () => {
+  // TODO Antes de Activar se verifica que tenga un puntaje superior a x
+  const id = document.getElementById("read-by-id").value;
+  data.forEach((customer) => {
+    if (customer.id === id) {
+      customer.state = !customer.state;
+      localStorage.setItem("data", JSON.stringify(data));
+    }
+  });
+  location.reload();
+});
+
+document.getElementById("desactivar").addEventListener("click", () => {
+  // TODO Antes de desactivar se verifica que no tenga creditos abiertos
+  const id = document.getElementById("read-by-id").value;
+  data.forEach((customer) => {
+    if (customer.id === id) {
+      customer.state = !customer.state;
+      localStorage.setItem("data", JSON.stringify(data));
+    }
+  });
+  location.reload();
 });

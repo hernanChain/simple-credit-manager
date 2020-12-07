@@ -12,7 +12,7 @@ const resetFields = () => {
 };
 
 document.getElementById("create-customer-btn").addEventListener("click", () => {
-  //   alert("Hola");
+  // TODO Validar que se ingresen todos los datos
   const newCustomer = new Customer(
     document.getElementById("id").value,
     document.getElementById("name").value,

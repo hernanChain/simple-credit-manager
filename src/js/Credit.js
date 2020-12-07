@@ -1,11 +1,13 @@
 class Credit {
-  constructor(value, interest, date, months) {
-    this.value = value;
-    this.interest = interest;
+  constructor(number, value, interest, date, months) {
+    this.number = number;
+    this.value = Number(value);
+    this.interest = Number(interest);
     this.date = date;
-    this.months = months;
-    this.total = value + (value * interest) / 100;
-    this.cuotas = this.total / months;
+    this.months = Number(months);
+    this.total = this.value + (this.value * this.interest) / 100;
+    this.cuotas = this.total / this.months;
+    this.state = true;
   }
   setValue(value) {
     this.value = value;
@@ -18,6 +20,9 @@ class Credit {
   }
   setMonths(months) {
     this.months = months;
+  }
+  setState(state) {
+    this.state = state;
   }
   getValue() {
     return this.value;
@@ -34,5 +39,8 @@ class Credit {
   getTotal() {
     return this.total;
   }
+  getState() {
+    return this.state;
+  }
 }
-module.exports = Credit;
+// module.exports = Credit;
