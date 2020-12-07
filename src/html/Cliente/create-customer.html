@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../css/create-customer.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-
     <title>Hello, world!</title>
   </head>
   <body>
     <div class="container">
       <div class="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="./index.html">Inicio</a>
+          <a class="navbar-brand" href="../../../index.html">Inicio</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -52,14 +49,8 @@
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a
-                    class="dropdown-item"
-                    href="./src/html/Cliente/create-customer.html"
-                    >Ingresar Nuevo Cliente</a
-                  >
-                  <a
-                    class="dropdown-item"
-                    href="./src/html/Cliente/read-customers.html"
+                  <a class="dropdown-item" href="#">Ingresar Nuevo Cliente</a>
+                  <a class="dropdown-item" href="./read-customers.html"
                     >Ver Informacion de Clientes</a
                   >
                   <a class="dropdown-item" href="#"
@@ -98,8 +89,59 @@
           </div>
         </nav>
       </div>
-    </div>
 
+      <div class="content">
+        <p class="h1">Bienvenido al Modulo de Creacion de Clientes</p>
+        <form>
+          <div id="alert"></div>
+          <div class="form-group">
+            <label for="id">Numero de Cedula</label>
+            <input type="number" class="form-control" id="id" />
+          </div>
+          <div class="form-group">
+            <label for="name">Nombres</label>
+            <input type="text" class="form-control" id="name" />
+          </div>
+          <div class="form-group">
+            <label for="lastname">Apellidos</label>
+            <input type="text" class="form-control" id="lastname" />
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="address">Direccion</label>
+                <input type="text" class="form-control" id="address" />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="city">Ciudad</label>
+                <input type="text" class="form-control" id="city" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cellphone">Telefono</label>
+            <input type="tel" class="form-control" id="cellphone" />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo</label>
+            <input type="email" class="form-control" id="email" />
+          </div>
+          <div class="button">
+            <input
+              id="create-customer-btn"
+              type="button"
+              class="btn btn-primary"
+              value="Ingresar"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../../../data/db.js"></script>
+    <script src="../../js/Customer.js"></script>
+    <script src="../../js/Customer/create-customer.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

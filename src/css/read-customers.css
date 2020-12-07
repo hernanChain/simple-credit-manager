@@ -1,0 +1,49 @@
+.my-custom-scrollbar {
+  position: relative;
+  height: 300px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
+.container {
+  border: 1px solid darkslategray;
+}
+.search-area {
+  border: 1px solid darkslategray;
+  /* box-shadow: ; */
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+}
+.h1 {
+  padding-top: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+#navbar-search {
+  justify-content: center;
+}
+.search-id:after {
+  content: "";
+  height: 1px;
+  background: black;
+  display: block;
+}
+#customer-details {
+  text-align: left;
+}
+.hidden-customer-data {
+  display: none;
+}
+
+.sufix {
+  color: #259cf0;
+}
+.value {
+  color: black;
+  border-bottom: 1px solid black;
+}

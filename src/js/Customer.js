@@ -7,6 +7,7 @@ class Customer {
     this.city = city;
     this.cellphone = cellphone;
     this.email = email;
+    this.state = true;
     this.credits = [];
   }
   setId(id) {
@@ -30,6 +31,9 @@ class Customer {
   setEmail(email) {
     this.email = email;
   }
+  setState(state) {
+    this.state = state;
+  }
   getId() {
     return this.id;
   }
@@ -50,6 +54,9 @@ class Customer {
   }
   getEmail() {
     return this.email;
+  }
+  getState() {
+    return this.state;
   }
 }
 // module.exports = Customer;
