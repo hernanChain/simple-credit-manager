@@ -6,8 +6,30 @@ class Credit {
     this.date = date;
     this.months = Number(months);
     this.total = this.value + (this.value * this.interest) / 100;
-    this.cuotas = this.total / this.months;
+    this.cuotas = this.setCuotas(this.date, this.months, this.total);
     this.state = true;
+  }
+  setCuotas(date, months, total) {
+    const cuota_value = total / months;
+    const cuotas = [];
+    let dateSplitted = date.split("-");
+    dateSplitted = dateSplitted.map((element) => { return Number(element); });
+    let currentMonth = dateSplitted[1];
+    let currentYear = dateSplitted[0];
+    for (let i = 0; i < months; i++) {
+      if (currentMonth === 12) {
+        currentMonth = 0;
+      }
+      const nextMonth = ++currentMonth;
+      const newYear = nextMonth === 1 ? ++currentYear : currentYear;
+      const date = `${nextMonth}/${newYear}`;
+      const newCuota = new Cuota(i + 1, date, cuota_value, false);
+      cuotas.push(JSON.parse(JSON.stringify(newCuota)));
+    }
+    return cuotas;
+  }
+  setNumber(number) {
+    this.number = number;
   }
   setValue(value) {
     this.value = value;
@@ -21,9 +43,12 @@ class Credit {
   setMonths(months) {
     this.months = months;
   }
+
   setState(state) {
     this.state = state;
   }
+
+
   getValue() {
     return this.value;
   }

@@ -1,6 +1,7 @@
-// import Customer from "../Customer";
-// const Customer = require("../Customer");
-data = JSON.parse(localStorage.getItem("data"));
+if (localStorage.getItem("data")) {
+  data = JSON.parse(localStorage.getItem("data"));
+}
+
 const resetFields = () => {
   document.getElementById("id").value = "";
   document.getElementById("name").value = "";
