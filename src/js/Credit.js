@@ -10,7 +10,12 @@ class Credit {
     this.state = true;
   }
   setCuotas(date, months, total) {
-    const cuota_value = total / months;
+    
+    let roundOff = (num, places) => {
+      const x = Math.pow(10,places);
+      return Math.round(num * x) / x;
+    }
+    const cuota_value = roundOff(total / months,2);
     const cuotas = [];
     let dateSplitted = date.split("-");
     dateSplitted = dateSplitted.map((element) => { return Number(element); });

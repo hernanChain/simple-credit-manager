@@ -1,0 +1,13 @@
+.search-area {
+    border: 1px solid darkslategray;
+    /* box-shadow: ; */
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #navbar-search {
+    justify-content: center;
+  }
+#creditNumber-select{
+    margin-right: 10px;
+}

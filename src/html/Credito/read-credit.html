@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <link rel="stylesheet" href="../../css/read-credit.css" />
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -22,7 +22,7 @@
     <div class="container">
       <div class="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="./index.html">Inicio</a>
+          <a class="navbar-brand" href="../../../index.html">Inicio</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -52,14 +52,12 @@
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a
-                    class="dropdown-item"
-                    href="./src/html/Cliente/create-customer.html"
+                  <a class="dropdown-item" href="../Cliente/create-customer.html"
                     >Ingresar Nuevo Cliente</a
                   >
                   <a
                     class="dropdown-item"
-                    href="./src/html/Cliente/read-customers.html"
+                    href="../Cliente/read-customers.html"
                     >Ver Informacion de Clientes</a
                   >
                   <a class="dropdown-item" href="#"
@@ -83,12 +81,10 @@
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a
-                    class="dropdown-item"
-                    href="./src/html/Credito/create-credit.html"
+                  <a class="dropdown-item" href="./create-credit.html"
                     >Iniciar credito</a
                   >
-                  <a class="dropdown-item" href="./src/html/Credito/read-credit.html">Ver Creditos por Cliente</a>
+                  <a class="dropdown-item" href="./read-credit.html">Ver Creditos por Cliente</a>
                 </div>
               </li>
               <li class="nav-item active">
@@ -100,8 +96,51 @@
           </div>
         </nav>
       </div>
+      <div class="content">
+        <p class="h1">
+          Bienvenido al Modulo de Lectura de Detalle de Credito
+        </p>
+        <div id="alert"></div>
+        <div class="search-area">
+          <label for="read-by-id"
+            ><h3>
+              Ingrese numero de cedula y el numero del credito para informacion mas detallada
+            </h3></label
+          >
+          <div class="search-id">
+            <nav id="navbar-search" class="navbar navbar-light bg-light">
+              <form class="form-inline">
+                <input
+                  id="read-by-id"
+                  class="form-control mr-sm-2"
+                  type="number"
+                  placeholder="Cedula"
+                  aria-label="Search"
+                />
+                <div class="form-group">
+                  <select class="form-control" id="creditNumber-select">
+                    <option selected>N° de Credito</option>
+                  </select>
+                </div>
+                
+                <button
+                  id="search-id"
+                  class="btn btn-outline-success my-2 my-sm-0"
+                  type="button"
+                >
+                  Buscar
+                </button>
+              </form>
+            </nav>
+          </div>
+          
+        </div>
+
+      </div>
     </div>
 
+    <script src="../../../data/db.js"></script>
+    <script src="../../js/Credit/read-credits.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

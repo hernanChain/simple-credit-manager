@@ -26,8 +26,8 @@ document.getElementById("create-credit-btn").addEventListener("click", () => {
   const date = document.getElementById("date").value;
   const value = document.getElementById("value").value;
   const interest = document.getElementById("interest").value;
-  // TODO Agregar numero de credito automatico
-  const newCredit = new Credit("999999", value, interest, date, months);
+  
+  const newCredit = new Credit(creditNumber(), value, interest, date, months);
   const found = data.find((customer) => customer.id === id);
   if (found) {
     try {
@@ -60,3 +60,7 @@ document.getElementById("create-credit-btn").addEventListener("click", () => {
 document.getElementById("id").addEventListener('click', () => {
   resetFields();
 });
+
+const creditNumber = ()=>{
+  return Math.floor(Math.random()*1000000000);
+}
