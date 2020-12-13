@@ -14,7 +14,7 @@ const fillTable = (credit) => {
     <th scope="row">${cuota.number}</th>
     <td>${cuota.month}</td>
     <td>${cuota.value}</td>
-    <td>${cuota.state}</td>
+    <td>${cuota.state?"Pagada":"Sin pagar"}</td>
     </tr>`;
   });
 };
@@ -34,6 +34,8 @@ document.getElementById("create-credit-btn").addEventListener("click", () => {
       found.credits.push(JSON.parse(JSON.stringify(newCredit)));
       localStorage.setItem("data", JSON.stringify(data));
       document.getElementById("table-content").innerHTML = `
+      <h3>Numero del Credito: <strong>${newCredit.getNumber()}</strong></h3>
+      <br>
       <table class="table" id="table-all-customers">
       <thead class="thead-dark">
         <tr>

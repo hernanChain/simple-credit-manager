@@ -11,3 +11,45 @@
 #creditNumber-select{
     margin-right: 10px;
 }
+.title-secondary{
+    margin-top: 25px;
+}
+.label-primary{
+    margin-top: 15px;
+}
+#credit-details {
+    text-align: left;
+  }
+  .sufix {
+    color: #259cf0;
+  }
+
+  .value {
+    color: black;
+    border-bottom: 1px solid black;
+  }
+  .hidden-credit-data {
+    display: none;
+  }
+  .title-secondary{
+    text-align: center;
+  }
+.hidden-finish-credit{
+    display: none;
+    border: 1px solid blue;
+  }
+
+#button-finish{
+  text-align: center;
+  margin-bottom: 20px;
+}
+#inactive-credit{
+  background: #ced2ca;
+}
+.h1 {
+  padding-top: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 20px;
+}

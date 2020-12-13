@@ -103,7 +103,7 @@
         <div id="alert"></div>
         <div class="search-area">
           <label for="read-by-id"
-            ><h3>
+            ><h3 class="label-primary">
               Ingrese numero de cedula y el numero del credito para informacion mas detallada
             </h3></label
           >
@@ -119,23 +119,43 @@
                 />
                 <div class="form-group">
                   <select class="form-control" id="creditNumber-select">
-                    <option selected>N° de Credito</option>
+                    <option selected value="none">N° de Credito</option>
                   </select>
                 </div>
-                
-                <button
-                  id="search-id"
-                  class="btn btn-outline-success my-2 my-sm-0"
-                  type="button"
-                >
-                  Buscar
-                </button>
               </form>
             </nav>
           </div>
           
+          <div id="credit-details" class="hidden-credit-data">
+            <h5 class="title-secondary">Informacion general del credito</h5>
+            <p class="sufix">
+              Numero:
+              <span class="value" id="number"></span>
+            </p>
+            <p class="sufix">
+              Cantidad de dinero total a pagar: <span class="value" id="total"></span>
+            </p>
+            <p class="sufix">
+              Fecha de Inicio del Credito:
+              <span class="value" id="date"></span>
+            </p>
+            <p class="sufix">
+              Numero de Cuotas:
+              <span class="value" id="cuotas"></span>
+            </p>
+            <p class="sufix">
+              Interes: <span class="value" id="interest"></span>
+            </p>
+            <p class="sufix">
+              Estado: <span class="value" id="state"></span>
+            </p>
+            <div id="table-content" class="table-credits"></div>
+            <div id="button-finish" class="hidden-finish-credit">
+              <button type="button" id="finish-credit" class="btn btn-danger">Finalizar Credito</button>
+            </div>
+            </div>
+            
         </div>
-
       </div>
     </div>
 

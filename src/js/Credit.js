@@ -28,7 +28,8 @@ class Credit {
       const nextMonth = ++currentMonth;
       const newYear = nextMonth === 1 ? ++currentYear : currentYear;
       const date = `${nextMonth}/${newYear}`;
-      const newCuota = new Cuota(i + 1, date, cuota_value, false);
+      const newCuota = new Cuota(i + 1, date, cuota_value, true);
+      // TODO Pasar el estado a false
       cuotas.push(JSON.parse(JSON.stringify(newCuota)));
     }
     return cuotas;
@@ -52,7 +53,9 @@ class Credit {
   setState(state) {
     this.state = state;
   }
-
+  getNumber(){
+    return this.number;
+  }
 
   getValue() {
     return this.value;
