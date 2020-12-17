@@ -1,4 +1,6 @@
-data = JSON.parse(localStorage.getItem("data"));
+
+if (localStorage.getItem("data")) {
+  data = JSON.parse(localStorage.getItem("data"));
 const resetFields = () => {
   document.getElementById("id").value = "";
   document.getElementById("months").value = "";
@@ -21,6 +23,7 @@ const fillTable = (credit) => {
 document.getElementById("create-credit-btn").addEventListener("click", () => {
   // TODO Validar que se ingresen todos los campos
   // TODO Validar que los campos sean el formato correcto
+  // TODO Verificar que el cleinte este activo
   const id = document.getElementById("id").value;
   const months = document.getElementById("months").value;
   const date = document.getElementById("date").value;
@@ -30,32 +33,52 @@ document.getElementById("create-credit-btn").addEventListener("click", () => {
   const newCredit = new Credit(creditNumber(), value, interest, date, months);
   const found = data.find((customer) => customer.id === id);
   if (found) {
-    try {
-      found.credits.push(JSON.parse(JSON.stringify(newCredit)));
-      localStorage.setItem("data", JSON.stringify(data));
-      document.getElementById("table-content").innerHTML = `
-      <h3>Numero del Credito: <strong>${newCredit.getNumber()}</strong></h3>
-      <br>
-      <table class="table" id="table-all-customers">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">N° de Cuota</th>
-          <th scope="col">Mes</th>
-          <th scope="col">Valor de Cuota</th>
-          <th scope="col">Estado</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>`;
-      fillTable(newCredit);
-    } catch (error) {
-      //TODO Algo ha ocurrido, intente mas tarde alerta
+    if (found.state) {
+      try {
+        found.credits.push(JSON.parse(JSON.stringify(newCredit)));
+        localStorage.setItem("data", JSON.stringify(data));
+        document.getElementById("table-content").innerHTML = `
+        <h3>Numero del Credito: <strong>${newCredit.getNumber()}</strong></h3>
+        <br>
+        <table class="table" id="table-all-customers">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">N° de Cuota</th>
+            <th scope="col">Mes</th>
+            <th scope="col">Valor de Cuota</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>`;
+        fillTable(newCredit);
+      } catch (error) {
+        console.error(error);
+        document.getElementById(
+          "alert"
+        ).innerHTML = `<div class="alert alert-danger"><strong>Algo ha ocurrido! </strong>Intenta mas tarde!</div>`;
+        setTimeout(() => {
+          document.getElementById("alert").innerHTML = "";
+        }, 3000);
+      }
+    }else{
+      console.log("El cliente se encuentra inactivo");
+      document.getElementById(
+        "alert"
+      ).innerHTML = `<div class="alert alert-warning"><strong>Cliente Inactivo </strong>El cliente existe pero se encuentra inactivo, debe activarlo y volver a intentar!</div>`;
+      setTimeout(() => {
+        document.getElementById("alert").innerHTML = "";
+      }, 3000);
+      resetFields();
     }
 
-    console.log(data);
   } else {
-    // TODO Alerta de que el cliente con esa cedula no existe
-    console.log("No existe ese cliente");
+    document.getElementById(
+      "alert"
+    ).innerHTML = `<div class="alert alert-danger"><strong>Woow! </strong>NO existe cliente con cedula ${id}</div>`;
+    setTimeout(() => {
+      document.getElementById("alert").innerHTML = "";
+    }, 3000);
   }
 });
 
@@ -65,4 +88,8 @@ document.getElementById("id").addEventListener('click', () => {
 
 const creditNumber = ()=>{
   return Math.floor(Math.random()*1000000000);
+}
+}else{
+  console.log("NO existem datos para mostrar ");
+  // TODO No hay nada en data
 }

@@ -1,0 +1,12 @@
+.h1 {
+    padding-top: 10px;
+    font-family: "Nunito Sans", sans-serif;
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+
+.pay-button{
+    margin-top: 40px;
+    text-align: center;
+}

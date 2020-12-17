@@ -1,6 +1,6 @@
 if (localStorage.getItem("data")) {
   data = JSON.parse(localStorage.getItem("data"));
-}
+
 
 const resetFields = () => {
   document.getElementById("id").value = "";
@@ -55,3 +55,4 @@ document.getElementById("create-customer-btn").addEventListener("click", () => {
   resetFields();
   // console.log(JSON.parse(JSON.stringify(newCustomer)));
 });
+}

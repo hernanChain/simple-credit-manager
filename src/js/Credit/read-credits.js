@@ -1,20 +1,37 @@
+if(localStorage.getItem("data")){
+
+
 data = JSON.parse(localStorage.getItem("data"));
 const id = document.getElementById('read-by-id');
 id.addEventListener('change',()=>{
     const found = data.find(customer => customer.id === id.value);
     if (found) {
+      if (found.credits.length === 0) {
+        document.getElementById(
+          "alert"
+        ).innerHTML = `<div class="alert alert-info"><strong>Cliente sin creditos</strong> El cliente que esta intentando buscar no tiene creditos en nuestra organizacion</div>`;
+        setTimeout(() => {
+          document.getElementById("alert").innerHTML = "";
+        }, 4000);
+        id.value = "";
+      }else{
         found.credits.forEach(credit => {
           if (credit.state) {
-            document.getElementById("creditNumber-select").innerHTML += `<option value="${credit.number}">${credit.number}</option>`
+            document.getElementById("creditNumber-select").innerHTML += `<option value="${credit.number}">${credit.number}</option>`;
           
           }else{
-            document.getElementById("creditNumber-select").innerHTML += `<option id="inactive-credit" value="${credit.number}">${credit.number}</option>`
+            document.getElementById("creditNumber-select").innerHTML += `<option id="inactive-credit" value="${credit.number}">${credit.number}</option>`;
           }
-            // TODO ALERTA DE QUE EL CLIENTE EXISTE PERO NO TIENE CREDITOS
         });
+      }
     }else{
-        console.log("no existe dicho cliente");
-        // TODO ALERTA DE CLIENTE NO EXISTE
+        document.getElementById(
+          "alert"
+        ).innerHTML = `<div class="alert alert-danger"><strong>Woow! </strong>NO existe cliente con cedula ${id.value}</div>`;
+        setTimeout(() => {
+          document.getElementById("alert").innerHTML = "";
+        }, 3000);
+        id.value = "";
     }
     
 });
@@ -91,3 +108,10 @@ document.getElementById('finish-credit').addEventListener('click',()=>{
   localStorage.setItem("data", JSON.stringify(data));
   location.reload();
 })
+}else{
+  document.getElementById('id').value = "";
+  document.getElementById(
+    "alert"
+  ).innerHTML = `<div class="alert alert-danger"><strong>No se puede mostrar ningun credito </strong>No existen clientes en la base de datos y por ende tampoco creditos</div>`;
+  
+}
