@@ -1,0 +1,37 @@
+
+  .container {
+    border: 1px solid darkslategray;
+  }
+  .search-area {
+    border: 1px solid darkslategray;
+    /* box-shadow: ; */
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  .h1 {
+    padding-top: 10px;
+    font-family: "Nunito Sans", sans-serif;
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+  
+  #navbar-search {
+    justify-content: center;
+  }
+  
+.fields-to-update{
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.hidden{
+  display: none;
+}
+.button{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

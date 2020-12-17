@@ -116,7 +116,7 @@ if(localStorage.getItem("data")){
   document.getElementById(
     "alert"
   ).innerHTML = `<div class="alert alert-danger"><strong>No se puede mostrar ningun cliente </strong>No existen clientes en la base de datos.</div>`;
-  
+  document.getElementById('table-customers').classList.add("hidden-table-customers")
 }
 
 
