@@ -92,4 +92,13 @@ const creditNumber = ()=>{
 }else{
   console.log("NO existem datos para mostrar ");
   // TODO No hay nada en data
+  document.getElementById(
+    "alert"
+  ).innerHTML = `<div class="alert alert-danger"><strong>No se puede mostrar ningun credito </strong>No existen clientes en la base de datos y por ende tampoco creditos</div>`;
+  document.getElementById("id").disabled = true;
+  document.getElementById("months").disabled = true;
+  document.getElementById("date").disabled = true;
+  document.getElementById("value").disabled = true;
+  document.getElementById("interest").disabled = true;
+  document.getElementById("table-content").disabled = true;
 }
