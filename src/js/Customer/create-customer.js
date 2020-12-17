@@ -1,6 +1,8 @@
 if (localStorage.getItem("data")) {
   data = JSON.parse(localStorage.getItem("data"));
-
+}else{
+  data = [];
+}
 
 const resetFields = () => {
   document.getElementById("id").value = "";
@@ -13,7 +15,14 @@ const resetFields = () => {
 };
 
 document.getElementById("create-customer-btn").addEventListener("click", () => {
-  // TODO Validar que se ingresen todos los datos
+  if(document.getElementById("id").value === "" || document.getElementById("name").value === ""|| document.getElementById("lastname").value === ""|| document.getElementById("lastname").value === ""|| document.getElementById("address").value === "" || document.getElementById("city").value === "" || document.getElementById("cellphone").value === "" || document.getElementById("email").value === ""){
+    document.getElementById(
+      "alert"
+    ).innerHTML = `<div class="alert alert-danger"><strong>Faltan datos! </strong> Se deben completar la totalidad de los campos para seguir con el proceso!</div>`;
+    setTimeout(() => {
+      document.getElementById("alert").innerHTML = "";
+    }, 4000);
+  }else{
   const newCustomer = new Customer(
     document.getElementById("id").value,
     document.getElementById("name").value,
@@ -54,5 +63,5 @@ document.getElementById("create-customer-btn").addEventListener("click", () => {
 
   resetFields();
   // console.log(JSON.parse(JSON.stringify(newCustomer)));
+  }
 });
-}

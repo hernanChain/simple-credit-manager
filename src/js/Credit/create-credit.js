@@ -21,9 +21,16 @@ const fillTable = (credit) => {
   });
 };
 document.getElementById("create-credit-btn").addEventListener("click", () => {
-  // TODO Validar que se ingresen todos los campos
-  // TODO Validar que los campos sean el formato correcto
-  // TODO Verificar que el cleinte este activo
+  if(document.getElementById("id").value === "" || document.getElementById("months").value === "" || document.getElementById("date").value || document.getElementById("value").value || document.getElementById("value").value || document.getElementById("interest").value){
+    document.getElementById(
+      "alert"
+    ).innerHTML = `<div class="alert alert-danger"><strong>Faltan datos! </strong> Se deben completar la totalidad de los campos para seguir con el proceso!</div>`;
+    setTimeout(() => {
+      document.getElementById("alert").innerHTML = "";
+    }, 4000);
+  }else{
+
+  
   const id = document.getElementById("id").value;
   const months = document.getElementById("months").value;
   const date = document.getElementById("date").value;
@@ -80,6 +87,7 @@ document.getElementById("create-credit-btn").addEventListener("click", () => {
       document.getElementById("alert").innerHTML = "";
     }, 3000);
   }
+}
 });
 
 document.getElementById("id").addEventListener('click', () => {
@@ -90,8 +98,6 @@ const creditNumber = ()=>{
   return Math.floor(Math.random()*1000000000);
 }
 }else{
-  console.log("NO existem datos para mostrar ");
-  // TODO No hay nada en data
   document.getElementById(
     "alert"
   ).innerHTML = `<div class="alert alert-danger"><strong>No se puede mostrar ningun credito </strong>No existen clientes en la base de datos y por ende tampoco creditos</div>`;

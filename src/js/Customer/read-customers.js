@@ -111,6 +111,8 @@ if(localStorage.getItem("data")){
     });
   });
 }else{
+  document.getElementById("read-by-id").disabled = true;
+  document.getElementById("search-id").disabled = true;
   document.getElementById(
     "alert"
   ).innerHTML = `<div class="alert alert-danger"><strong>No se puede mostrar ningun cliente </strong>No existen clientes en la base de datos.</div>`;

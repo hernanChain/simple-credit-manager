@@ -109,7 +109,9 @@ document.getElementById('finish-credit').addEventListener('click',()=>{
   location.reload();
 })
 }else{
-  document.getElementById('id').value = "";
+  document.getElementById('read-by-id').value = "";
+  document.getElementById('read-by-id').disabled = true;
+  document.getElementById("creditNumber-select").disabled = true;
   document.getElementById(
     "alert"
   ).innerHTML = `<div class="alert alert-danger"><strong>No se puede mostrar ningun credito </strong>No existen clientes en la base de datos y por ende tampoco creditos</div>`;
