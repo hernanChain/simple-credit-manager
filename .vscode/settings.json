@@ -1,6 +1,0 @@
-{
-    "typescript.format.semicolons": "insert",
-    "javascript.format.semicolons": "insert",
-    "todo-tree.tree.showBadges": false,
-    "todo-tree.tree.showCountsInTree": true
-}
